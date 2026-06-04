@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "SMaRT-Pack"
+version = "0.1.0"
+description = "A package containing the workflow for a machine learning internship part of the SMaRT 2026 Internship"
+authors = [
+  { name = "Simon Matei", email = "simonsamuelmatei2007@gmail.com" }
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+]
+
+[project.urls]
+Homepage = "https://github.com/SimonSMatei/SMaRT-Pack"
+Issues = "https://github.com/SimonSMatei/SMaRT-Pack/issues"
