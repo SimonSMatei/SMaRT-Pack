@@ -5,7 +5,7 @@ from pathlib import Path
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.base import BaseEstimator, RegressorMixin
 
- 
+
 def load_data(file_path:str) -> pd.DataFrame:
     script_dir = Path(file_path).resolve()
 
@@ -37,7 +37,7 @@ class GBR(BaseEstimator, RegressorMixin):
         
         self.features = features  
     
-    def fit(self, X: pd.DataFrame, y: np.Series) -> 'GBR':
+    def fit(self, X: pd.DataFrame, y: pd.Series) -> 'GBR':
 
         parms = {  'learning_rate': self.learning_rate,
                     'max_depth': self.max_depth,
