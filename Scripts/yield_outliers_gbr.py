@@ -6,8 +6,8 @@ if __name__ == "__main__":
     features = ["temp_ratio", "delta_Eb0", "sigma_y0", "E_negativity", "volume_DISTORT", "Exp_Shear_DISTORT", "Exp_Youngs_ROM"]
 
     learning_rate = 0.01
-    max_depth = 3
-    n_estimators = 100
+    max_depth = 6
+    n_estimators = 200
     min_samples_leaf = 6
     warm_start = True
 
@@ -29,4 +29,12 @@ if __name__ == "__main__":
     
     r2_score_train = gbr_model.score(X_train, y_train)
     print(f'R2 Score (train): {r2_score_train:.4f}')
+
+    y_hat = gbr_model.predict(data)
+
+    outliers_idx = gbr.find_outliers(y_hat, data["Yield_EXP"])
+
+    print(f"Outlier Indices: {outliers_idx}")
+
+    print(f"Total Outliers: {len(outliers_idx)}")   
 

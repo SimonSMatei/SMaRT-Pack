@@ -14,7 +14,7 @@ def load_data(file_path:str) -> pd.DataFrame:
 
     return pd.read_csv(script_dir)
 
-def find_outliers(y_hat: np.ndarray, y: np.ndarray, threshold: float = 2.0) -> np.ndarray:
+def find_outliers(y_hat: np.ndarray, y: np.ndarray, threshold: float = 3.0) -> np.ndarray:
     
     residuals = y - y_hat
     std_res = np.std(residuals)
