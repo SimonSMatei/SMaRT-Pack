@@ -1,4 +1,3 @@
-import pandas as pd
 from pathlib import Path
 from SMaRT_Pack import load_aflow_data
 
