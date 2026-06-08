@@ -1,0 +1,27 @@
+compound,auid,aurl,spacegroup_relax,Pearson_symbol_relax,species,agl_thermal_conductivity_300K
+Ag1C1,aflow:7726f25d86a7ac89,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/Ag1C1_ICSD_183175,225,cF8,"['Ag', 'C']",0.868197
+C1Cd1,aflow:228515a5e5c206a8,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Cd1_ICSD_183177,225,cF8,"['C', 'Cd']",2.96884
+C1Ce1,aflow:04ca355af458d4a6,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Ce1_ICSD_617324,225,cF8,"['C', 'Ce']",28.801
+C1Cr1,aflow:df3b1dca4b13cd2c,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Cr1_ICSD_181710,225,cF8,"['C', 'Cr']",20.8326
+C1Ge1,aflow:8fea397ef68c9f59,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Ge1_ICSD_182364,225,cF8,"['C', 'Ge']",19.6338
+C1Hf1,aflow:b47a366c761301a7,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Hf1_ICSD_108134,225,cF8,"['C', 'Hf']",63.6972
+C1Mo1,aflow:e6168f280fcabded,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Mo1_ICSD_183165,225,cF8,"['C', 'Mo']",58.2171
+C1Nb1,aflow:dc96ddaddb6c935b,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Nb1_ICSD_155164,225,cF8,"['C', 'Nb']",78.8903
+C1Ni1,aflow:e9301e24b4623b39,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Ni1_ICSD_180457,225,cF8,"['C', 'Ni']",12.2368
+C1Pa1,aflow:fb1cd92584ed214f,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Pa1_ICSD_108177,225,cF8,"['C', 'Pa']",30.8236
+C1Pd1,aflow:fea5bd3abdf35cf1,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Pd1_ICSD_181774,225,cF8,"['C', 'Pd']",5.43069
+C1Pt1,aflow:13435caa82fe4e49,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Pt1_ICSD_181114,225,cF8,"['C', 'Pt']",3.85442
+C1Rh1,aflow:3a4b13f181909c0b,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Rh1_ICSD_181773,225,cF8,"['C', 'Rh']",10.6001
+C1Ru1,aflow:4990d46926dfee7a,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Ru1_ICSD_183169,225,cF8,"['C', 'Ru']",1.49975
+C1Sc1,aflow:ae57dbb8516508a7,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Sc1_ICSD_181047,225,cF8,"['C', 'Sc']",28.7652
+C1Si1,aflow:0e5c7dd4d4402dff,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Si1_ICSD_182362,225,cF8,"['C', 'Si']",60.7937
+C1Sn1,aflow:01f0334da2961bb4,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Sn1_ICSD_182366,225,cF8,"['C', 'Sn']",14.5718
+C1Ta1,aflow:d2ab410fef99ea61,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Ta1_ICSD_155163,225,cF8,"['C', 'Ta']",61.4198
+C1Tc1,aflow:3faccddce4b6bc29,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Tc1_ICSD_183167,225,cF8,"['C', 'Tc']",5.40894
+C1Th1,aflow:4e03466d19a9aba3,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Th1_ICSD_260883,225,cF8,"['C', 'Th']",29.595
+C1Ti1,aflow:dd9ba1426a59901e,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Ti1_ICSD_151365,225,cF8,"['C', 'Ti']",91.4544
+C1Tl1,aflow:becbc8b7468a7e42,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Tl1_ICSD_618972,225,cF8,"['C', 'Tl']",2.90536
+C1V1,aflow:6ef93ac9f46062a8,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1V1_ICSD_159870,225,cF8,"['C', 'V']",96.1928
+C1W1,aflow:870b2f189ea048d2,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1W1_ICSD_167896,225,cF8,"['C', 'W']",44.9704
+C1Y1,aflow:10e56bff43e34aa4,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Y1_ICSD_181049,225,cF8,"['C', 'Y']",19.4086
+C1Zr1,aflow:b652e182b2677f30,aflowlib.duke.edu:AFLOWDATA/ICSD_WEB/FCC/C1Zr1_ICSD_159874,225,cF8,"['C', 'Zr']",67.4411
