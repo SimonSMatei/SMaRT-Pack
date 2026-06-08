@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "SMaRT-Pack"
 version = "0.1.0"
-description = "A package containing the workflow for a machine learning internship part of the SMaRT 2026 Internship"
+description = "A package containing the workflow for a machine learning internship part of the UT-ORII SMaRT 2026 Internship"
 authors = [
   { name = "Simon Matei", email = "simonsamuelmatei2007@gmail.com" }
 ]
