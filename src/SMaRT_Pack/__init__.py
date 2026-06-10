@@ -1,1 +1,2 @@
-from .DataProcessing import load_aflow_data
+from .DataProcessing.loaders import load_aflow_data
+from .DataProcessing.stats import evaluate_duplicate_variances

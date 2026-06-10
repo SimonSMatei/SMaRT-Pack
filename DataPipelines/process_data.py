@@ -1,6 +1,7 @@
 import ast
 import pandas as pd
 from pathlib import Path
+from SMaRT_Pack import evaluate_duplicate_variances
 
 DATA_DIR = Path(__file__).resolve().parent.parent / 'DataBases' / 'RawData' / 'CombinedData'
 OUTPUT_DIR = Path(__file__).resolve().parent.parent / 'DataBases' / 'ProcessedData'
@@ -119,6 +120,20 @@ def combine_datasets(df1: pd.DataFrame, df2: pd.DataFrame)->pd.DataFrame:
 
     return pd.concat([df1, df2], axis = 0)
 
+def compress_combined_dataset(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    df, var = evaluate_duplicate_variances(
+        data = df,
+        target_feature = 'compound',
+        excluded_params = ['binding_metal', 'run_count', 'source'], 
+        origin_col = 'source',
+        custom_agg = {'run_count': 'sum'},
+        source_a = 'aflow',
+        source_b = 'icsd'
+    )
+
+    return df, var
+
+
 def sort_data(df: pd.DataFrame)->pd.DataFrame:  
     df = df.sort_values(by=['compound', 'source'])
 
@@ -152,4 +167,13 @@ if __name__ == '__main__':
 
     combined_data = sort_data(combined_data)
 
+    save_to_csv(combined_data, OUTPUT_DIR, 'processed_all_uncompressed.csv')
+
+    combined_data, var = compress_combined_dataset(combined_data)
+
+    combined_data = sort_data(combined_data)
+
+    combined_data = combined_data.drop(columns = ['source'])
+
+    save_to_csv(var, OUTPUT_DIR, 'variances.csv')
     save_to_csv(combined_data, OUTPUT_DIR, 'processed_all.csv')
