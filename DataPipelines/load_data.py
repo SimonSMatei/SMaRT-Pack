@@ -1,3 +1,16 @@
+'''
+
+    This script is used to load data from the AFLOW database into a pandas DataFrame 
+    to then be saved as CSV files as raw datasets. 
+    
+    The data is loaded in separate files based on the property type.
+    Each property type is loaded from both ICSD and AFLOW databases.
+    The data is then saved as CSV files in the DataBases/RawData folder.
+
+'''
+
+### Imports ###
+
 from pathlib import Path
 from SMaRT_Pack import load_aflow_data
 
@@ -35,8 +48,11 @@ debye_temperature_aflow_url = 'https://aflowlib.org/API/aflux/?species(C),spaceg
 formation_enthalpy_icsd_url = 'https://aflowlib.org/API/aflux/?species(C),$catalog(ICSD),spacegroup_relax(225),Pearson_symbol_relax(cF8),enthalpy_formation_atom(*),$paging(1,1000)'
 formation_enthalpy_aflow_url = 'https://aflowlib.org/API/aflux/?species(C),spacegroup_relax(225),Pearson_symbol_relax(cF8),enthalpy_formation_atom(*),$paging(1,1000)'
 
+### Main ###
 
 if __name__ == '__main__':
+
+    ### List of parameters to load ###
 
     parameters = [lattice_parameter_icsd_url, lattice_parameter_aflow_url, thermal_conductivity_icsd_url, 
                   thermal_conductivity_aflow_url, coef_thermal_expansion_icsd_url, coef_thermal_expansion_aflow_url, 
@@ -52,8 +68,18 @@ if __name__ == '__main__':
 
 
 
+    ### Loop through each parameter and load the data ###
+
     for p, f in zip(parameters, file_names):
+
+        ### If the file name contains 'icsd', then load from ICSD database ###
+
         if 'icsd' in f:
+
             load_aflow_data(p, save_csv = True, csv_path = Path(__file__).resolve().parent.parent / 'DataBases' / 'RawData' / 'ICSDCarbides' / f)
+        
+        ### Otherwise, load from AFLOW database ###
+
         else:
+
             load_aflow_data(p, save_csv = True, csv_path = Path(__file__).resolve().parent.parent / 'DataBases' / 'RawData' / 'AllAFLOWCarbides' / f)
