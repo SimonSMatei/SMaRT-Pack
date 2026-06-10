@@ -30,12 +30,13 @@ def evaluate_duplicate_variances(data: pd.DataFrame, target_feature: str | list[
 
     base_agg = {}
 
-    for i in data.columns:
-        if i not in header:
-            base_agg[i] = 'first'
+    for i in excluded_params:
+        base_agg[i] = 'first'
 
     for key, value in var_output.items():
-        if value < threshold and not pd.isna(value):
+        if pd.isna(value):
+            base_agg[key] = 'first'
+        elif value < threshold:
             base_agg[key] = 'mean'
         else:
             base_agg[key + '_' + source_a] = 'first'
