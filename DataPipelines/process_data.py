@@ -1,4 +1,4 @@
-'''
+"""
 
     This script is used to process all the data from both the ICSD and AFLOW databases.
     The data is processed into usable forms for model training and analysis.
@@ -7,7 +7,7 @@
 
     The data is then processed and saved as CSV files in the DataBases/ProcessedData folder.
 
-'''
+"""
 
 ### Imports ###
 
@@ -343,6 +343,26 @@ def sort_data(df: pd.DataFrame)->pd.DataFrame:
     return df
 
 
+def unique_elements(df: pd.DataFrame) -> pd.DataFrame:
+    
+    """
+
+        This function finds the unique elements in the data base from
+        the metal binding column as well as adding carbon as these are
+        all carbides.
+
+        Args:
+            df (pd.DataFrame): The DataFrame containing the data.
+
+        Returns:
+            pd.DataFrame: The DataFrame containing the unique elements.
+
+    """
+    elements = df['binding_metal'].unique().tolist() + ['C']
+
+    return pd.DataFrame(data = {"Elements": elements})
+
+
 def save_to_csv(df: pd.DataFrame, directory: Path, file_name: str) -> None:
 
     """
@@ -417,4 +437,9 @@ if __name__ == '__main__':
     save_to_csv(var, OUTPUT_DIR, 'variances.csv')
 
     save_to_csv(combined_data, OUTPUT_DIR, 'processed_all.csv')
-    
+
+    ### Get Unique Elements ###
+
+    elements = unique_elements(combined_data)
+
+    save_to_csv(elements, OUTPUT_DIR, 'elements.csv')
