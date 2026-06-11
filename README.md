@@ -1,6 +1,6 @@
 # SMaRT_Pack
 
-SMaRT_Pack is a deterministic data engineering pipeline for materials science, specifically built to analyze High-Entropy Carbides, but can be adapted for any material system.
+SMaRT_Pack is a deterministic data engineering pipeline for materials science, specifically built to analyze High-Entropy Carbides, but the goal is for it to be adapted for any material system.
 
 SMaRT_Pack is designed to programmatically fetch, deduplicate, and merge conflicting structural data from multi-source databases (e.g., AFLOW and ICSD). It prepares mathematically pure, physically consistent data schemas optimized for downstream Machine Learning models.
 
