@@ -440,6 +440,6 @@ if __name__ == '__main__':
 
     ### Get Unique Elements ###
 
-    elements = unique_elements(combined_data)
+    elements = unique_elements(aflow_data)
 
     save_to_csv(elements, OUTPUT_DIR, 'elements.csv')
