@@ -394,8 +394,8 @@ if __name__ == '__main__':
 
     ### Save Pre-Compression Data ###
 
-    save_to_csv(aflow_data, OUTPUT_DIR, 'pre_compression_aflow.csv')
-    save_to_csv(icsd_data, OUTPUT_DIR, 'pre_compression_icsd.csv')
+    save_to_csv(aflow_data, OUTPUT_DIR / 'Pre_Compressed', 'aflow.csv')
+    save_to_csv(icsd_data, OUTPUT_DIR / 'Pre_Compressed', 'icsd.csv')
 
     ### Compress Data ###
 
@@ -411,8 +411,8 @@ if __name__ == '__main__':
 
     ### Save Processed Data ###
 
-    save_to_csv(aflow_data, OUTPUT_DIR, 'processed_aflow.csv')
-    save_to_csv(icsd_data, OUTPUT_DIR, 'processed_icsd.csv')
+    save_to_csv(aflow_data, OUTPUT_DIR / 'Processed', 'aflow.csv')
+    save_to_csv(icsd_data, OUTPUT_DIR / 'Processed', 'icsd.csv')
 
     ### Combine Datasets ###
 
@@ -422,7 +422,7 @@ if __name__ == '__main__':
 
     ### Save Uncompressed Data ###
 
-    save_to_csv(combined_data, OUTPUT_DIR, 'processed_all_uncompressed.csv')
+    save_to_csv(combined_data, OUTPUT_DIR / 'Processed', 'processed_all_uncompressed.csv')
 
     ### Compress Combined Dataset ###
 
@@ -434,12 +434,12 @@ if __name__ == '__main__':
 
     ### Save Variances and Final Dataset ###
 
-    save_to_csv(var, OUTPUT_DIR, 'variances.csv')
+    save_to_csv(var, OUTPUT_DIR / 'Misc', 'variances.csv')
 
-    save_to_csv(combined_data, OUTPUT_DIR, 'processed_all.csv')
+    save_to_csv(combined_data, OUTPUT_DIR / 'Processed', 'processed_all.csv')
 
     ### Get Unique Elements ###
 
     elements = unique_elements(aflow_data)
 
-    save_to_csv(elements, OUTPUT_DIR, 'elements.csv')
+    save_to_csv(elements, OUTPUT_DIR / 'Misc', 'elements.csv')
