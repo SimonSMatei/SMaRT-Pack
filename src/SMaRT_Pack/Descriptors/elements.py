@@ -5,13 +5,36 @@ from pymatgen.core.periodic_table import Element
 
 class ElementData:
 
-    def __init__ (self, elements: list[str], properties: list[str]) -> None:
+    def __init__ (self, elements: list[str], properties: list[str], custom_properties: dict[str, dict] | None = None) -> None:
 
         if not elements:
             raise ValueError("No elements provided")
         
         if not properties:
             raise ValueError("No properties provided")
+        
+        if custom_properties is None:
+            self.custom_properties = {}
+        elif not isinstance(custom_properties, dict):
+            raise TypeError("custom_properties must be a dictionary or None")
+        else:
+            for prop, value in custom_properties.items():
+                if not isinstance(prop, str):
+                    raise TypeError(f"Property {prop} must be a string")
+                if not isinstance(value, dict):
+                    raise TypeError(f"{prop} must be a dictionary")
+                for elem in value.keys():
+                    if elem not in elements:
+                        raise ValueError(f"Element {elem} not in elements list")
+            
+            self.custom_properties = custom_properties
+        
+
+        self._translator = {
+            "electronegativity": "X",
+            "atomic_number": "Z"
+        }
+  
         
         self.elements_map = {element: Element(element) for element in elements}
 
@@ -20,20 +43,24 @@ class ElementData:
         valid_properties = []
 
         for prop in properties:
-            if hasattr(sample_element, prop) or prop in sample_element.data:
+
+            py_prop = self._translator.get(prop, prop)
+
+            if prop in self.custom_properties:
+                valid_properties.append(prop)
+            elif hasattr(sample_element, py_prop) or py_prop in sample_element.data:
                 valid_properties.append(prop)
             else:
                 raise ValueError(f"Property {prop} is not a valid property")
-                
+        
+        for prop in self.custom_properties.keys():
+            if prop not in valid_properties:
+                valid_properties.append(prop)
+
         self.properties = valid_properties
-  
-    def get_elements_matrix(self) -> dict[str, dict]:
-        self.elements_matrix = {}
 
-        for element, elem_obj in self.elements_map.items():            
-            self.elements_matrix[element] = {prop: self._extract_value(elem_obj, prop) for prop in self.properties}
+        self.elements_matrix = self._get_elements_matrix()
 
-        return self.elements_matrix
     
     def to_dataframe(self) -> pd.DataFrame:
         df = pd.DataFrame.from_dict(self.elements_matrix, orient='index')
@@ -52,14 +79,30 @@ class ElementData:
         with open(file_path, 'w') as f:
             json.dump(self.elements_matrix, f, indent=4)
 
+        
+    def _get_elements_matrix(self) -> dict[str, dict]:
+        elements_matrix = {}
+        for element, elem_obj in self.elements_map.items():            
+            elements_matrix[element] = {prop: self._extract_value(elem_obj, prop) for prop in self.properties}
+
+        return elements_matrix
 
     def _extract_value(self, elem_obj: Element, prop: str) -> float | int | None:
-        if prop in elem_obj.data:
-            item = elem_obj.data.get(prop)
+
+        py_prop = self._translator.get(prop, prop)
+
+        if prop in self.custom_properties:
+            if elem_obj.symbol in self.custom_properties[prop]:
+                return self.custom_properties[prop][elem_obj.symbol]
+            elif not (hasattr(elem_obj, py_prop) or py_prop in elem_obj.data):
+                return None
+
+        if py_prop in elem_obj.data:
+            item = elem_obj.data.get(py_prop)
         else:
-            item = getattr(elem_obj, prop, None)
+            item = getattr(elem_obj, py_prop, None)
         
-        if (item == "no data" or item is None) and prop == 'metallic_radius':
+        if (item == "no data" or item is None) and py_prop == 'metallic_radius':
             item = elem_obj.atomic_radius
         
         if item == 'no data':
