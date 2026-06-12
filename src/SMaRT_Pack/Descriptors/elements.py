@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+import warnings
 from pathlib import Path
 from pymatgen.core.periodic_table import Element
 
@@ -100,7 +101,9 @@ class ElementData:
         if py_prop in elem_obj.data:
             item = elem_obj.data.get(py_prop)
         else:
-            item = getattr(elem_obj, py_prop, None)
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                item = getattr(elem_obj, py_prop, None)
         
         if (item == "no data" or item is None) and py_prop == 'metallic_radius':
             item = elem_obj.atomic_radius

@@ -11,16 +11,16 @@ ELEMENTS_LIST = [
 ]
 
 ELEMENT_PROPERTIES = [
-    "atomic_mass",                                         
-    "electronegativity",                             
-    "atomic_radius",                                 
-    "metallic_radius",                               
-    "Melting point",                                 
-    "Coefficient of linear thermal expansion",         
-    "Thermal conductivity",    
-    "Vickers hardness",        
-    "Bulk modulus",              
-    "Youngs modulus",            
+    "atomic_mass",
+    "electronegativity",
+    "atomic_radius",
+    "metallic_radius",
+    "Melting point",
+    "Coefficient of linear thermal expansion",
+    "Thermal conductivity",
+    "Vickers hardness",
+    "Bulk modulus",
+    "Youngs modulus",
     "Poissons ratio",
 ]
 
@@ -35,6 +35,16 @@ VECS = {
 
 element_data = ElementData(ELEMENTS_LIST, ELEMENT_PROPERTIES, custom_properties=VECS)
 
-print(element_data.elements_matrix)
-
 element_data.save_as_csv(OUTPUT_DIR / 'element_data.csv')
+
+element_data_df = element_data.to_dataframe()
+
+element_data_df.rename(columns = {
+    'Coefficient of linear thermal expansion': 'agl_thermal_expansion_300K',
+    'Thermal conductivity': 'agl_thermal_conductivity_300K',
+    'Bulk modulus': 'ael_bulk_modulus_vrh',
+    'Youngs modulus': 'ael_young_modulus_vrh',
+    'Poissons ratio': 'ael_poisson_ratio',
+}, inplace = True)
+
+element_data_df.to_csv(OUTPUT_DIR / 'element_data_renamed.csv', index=False)
