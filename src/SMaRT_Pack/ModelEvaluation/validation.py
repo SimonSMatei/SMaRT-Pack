@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-from sklearn.metrics import r2_score
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 from sklearn.model_selection import RepeatedKFold, RepeatedStratifiedKFold
 
 
@@ -44,6 +44,30 @@ def kfold_cross_validation(
     results.set_index('Fold', inplace=True)
     
     return np.mean(scores), np.std(scores), results
+
+
+def get_performance_metrics(y_true: pd.Series | np.ndarray, y_pred: pd.Series | np.ndarray) -> dict[str, float]:
+    
+    r2 = r2_score(y_true, y_pred)
+    
+    mae = mean_absolute_error(y_true, y_pred)
+    
+    mse = mean_squared_error(y_true, y_pred)
+    
+    rmse = np.sqrt(mse)
+
+    relative_mae = mae / np.mean(y_true) * 100
+
+    relative_rmse = rmse / np.mean(y_true) * 100
+
+    return {
+        'R2': r2,
+        'MAE': mae,
+        'MSE': mse,
+        'RMSE': rmse,
+        'Relative MAE': relative_mae,
+        'Relative RMSE': relative_rmse,
+    }
 
 
 def get_outlier_report(y_hat: np.ndarray, y: np.ndarray, compositions: list[str] | pd.Series | np.ndarray, threshold: float = 3.0) -> pd.DataFrame:
