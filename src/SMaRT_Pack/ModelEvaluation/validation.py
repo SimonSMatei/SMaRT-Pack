@@ -76,15 +76,15 @@ def kfold_cross_validation(
 
         fold_metrics.append({
 
-            'Fold': fold_idx,
+            'fold': fold_idx,
 
-            'R2': score,
+            'r2': score,
 
         })
     
     results = pd.DataFrame(fold_metrics)
 
-    results.set_index('Fold', inplace=True)
+    results.set_index('fold', inplace=True)
     
     return np.mean(scores), np.std(scores), results
 
@@ -118,17 +118,17 @@ def get_performance_metrics(y_true: pd.Series | np.ndarray, y_pred: pd.Series | 
 
     return {
 
-        'R2': r2,
+        'r2': r2,
         
-        'MAE': mae,
+        'mae': mae,
 
-        'MSE': mse,
+        'mse': mse,
         
-        'RMSE': rmse,
+        'rmse': rmse,
         
-        'Relative MAE': relative_mae,
+        'relative_mae': relative_mae,
         
-        'Relative RMSE': relative_rmse,
+        'relative_rmse': relative_rmse,
 
     }
 
@@ -164,13 +164,13 @@ def get_outlier_report(y_hat: np.ndarray, y: np.ndarray, compositions: list[str]
 
     report = pd.DataFrame({
 
-        'Composition': bad_compositions,
+        'composition': bad_compositions,
         
         'y': bad_y,
         
         'y_hat': bad_y_hat,
         
-        'Standardized Error': bad_standard_errors,
+        'standardized_error': bad_standard_errors,
 
     })
 
