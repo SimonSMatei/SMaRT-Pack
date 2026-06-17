@@ -150,7 +150,7 @@ class ElementData:
 
         df = pd.DataFrame.from_dict(self.elements_matrix, orient='index')
 
-        df.index.name = 'Composition'
+        df.index.name = 'composition'
         
         df = df.reset_index()
 

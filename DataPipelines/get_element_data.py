@@ -74,7 +74,7 @@ if __name__ == '__main__':
 
         columns = {
         
-        'Melting Point': 'melting_point',
+        'Melting point': 'melting_point',
 
         'Coefficient of linear thermal expansion': 'thermal_expansion',
 

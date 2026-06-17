@@ -1,4 +1,4 @@
-Composition,atomic_mass,electronegativity,atomic_radius,metallic_radius,Melting point,thermal_expansion,thermal_conductivity,vickers_hardness,bulk_modulus,youngs_modulus,poissons_ratio,vec
+composition,atomic_mass,electronegativity,atomic_radius,metallic_radius,melting_point,thermal_expansion,thermal_conductivity,vickers_hardness,bulk_modulus,youngs_modulus,poissons_ratio,vec
 Al,26.9815386,1.61,1.25,1.43,933.47,2.31e-05,235.0,167.0,76.0,70.0,0.35,3
 Ce,140.116,1.12,1.85,1.818,1068.0,6.3e-06,11.0,270.0,22.0,34.0,0.24,4
 Co,58.933195,1.88,1.35,1.25,1768.0,1.3e-05,100.0,1043.0,180.0,209.0,0.31,9
