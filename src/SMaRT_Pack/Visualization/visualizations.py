@@ -1,7 +1,7 @@
-import shap
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 from pathlib import Path
 
 
@@ -15,7 +15,7 @@ def plot_parity(y_true: pd.Series | np.ndarray,
                 save_path: Path | str | None = None,
                 show: bool = False) -> None:
 
-    # Adapted from Ruben Soans's HECPyrochlore repository.
+    # Adapted from rben24's HECPyrochlore repository.
     # Original source: https://github.com/rben24/HECPyrochlore/blob/master/src/build_models/train_model.py
     
     fig, ax = plt.subplots(figsize=(6, 6))
@@ -59,3 +59,5 @@ def plot_parity(y_true: pd.Series | np.ndarray,
     else:
         plt.close(fig)
 
+def plot_feature_importance():
+    pass
