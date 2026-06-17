@@ -1,4 +1,4 @@
-compound,binding_metal,run_count,spinD_carbon_aflow,spinD_carbon_icsd,spinD_metal_aflow,spinD_metal_icsd,Egap,agl_thermal_expansion_300K,agl_debye,enthalpy_formation_atom,calculated_lattice_parameter,ael_bulk_modulus_vrh,ael_poisson_ratio_aflow,ael_poisson_ratio_icsd,ael_shear_modulus_vrh_aflow,ael_shear_modulus_vrh_icsd,ael_youngs_modulus_vrh_aflow,ael_youngs_modulus_vrh_icsd,agl_thermal_conductivity_300K_aflow,agl_thermal_conductivity_300K_icsd
+compound,binding_metal,run_count,spin_d_carbon_aflow,spin_d_carbon_icsd,spin_d_metal_aflow,spin_d_metal_icsd,egap,thermal_expansion,debye_temperature,formation_enthalpy,lattice_parameter,bulk_modulus,poissons_ratio_aflow,poissons_ratio_icsd,shear_modulus_aflow,shear_modulus_icsd,youngs_modulus_aflow,youngs_modulus_icsd,thermal_conductivity_aflow,thermal_conductivity_icsd
 Ag1C1,Ag,6,0.0,0.0,0.0,0.0,0.0,7.87e-05,181.934,2.2338320000000005,4.67235934503762,114.983,,0.445519,,13.0009,,37.5862,,0.868197
 Ag2C2,Ag,1,0.0,,0.0,,,,,2.2328,4.66632945409171,,,,,,,,,
 Al1C1,Al,3,0.0,,0.0,,,,,0.485762,4.268798847502474,,,,,,,,,

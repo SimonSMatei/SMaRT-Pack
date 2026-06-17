@@ -47,7 +47,7 @@ ELEMENT_PROPERTIES = [
 
 VECS = {
 
-    'VEC': {
+    'vec': {
 
         'Al': 3, 'Ce': 4, 'Co': 9, 'Cr': 6, 'Cu': 2, 'Fe': 3, 'Hf': 4, 'Ir': 6, 'Mn': 4, 
         'Mo': 6, 'Nb': 5, 'Ni': 2, 'Os': 6, 'Pa': 5, 'Pd': 4, 'Pu': 6, 'Re': 7, 'Rh': 6,
@@ -66,10 +66,6 @@ if __name__ == '__main__':
     
     element_data = ElementData(ELEMENTS_LIST, ELEMENT_PROPERTIES, custom_properties=VECS)
 
-    ### Save Data ###
-
-    element_data.save_as_csv(OUTPUT_DIR / 'element_data.csv')
-
     ### Renamed the Data Headers to Match Alfow Dataset ###
 
     element_data_df = element_data.to_dataframe()
@@ -77,16 +73,20 @@ if __name__ == '__main__':
     element_data_df.rename(
 
         columns = {
+        
+        'Melting Point': 'melting_point',
 
-        'Coefficient of linear thermal expansion': 'agl_thermal_expansion_300K',
+        'Coefficient of linear thermal expansion': 'thermal_expansion',
 
-        'Thermal conductivity': 'agl_thermal_conductivity_300K',
+        'Thermal conductivity': 'thermal_conductivity',
+
+        'Vickers hardness': 'vickers_hardness',
         
-        'Bulk modulus': 'ael_bulk_modulus_vrh',
+        'Bulk modulus': 'bulk_modulus',
         
-        'Youngs modulus': 'ael_young_modulus_vrh',
+        'Youngs modulus': 'youngs_modulus',
         
-        'Poissons ratio': 'ael_poisson_ratio',
+        'Poissons ratio': 'poissons_ratio',
 
         }, 
 
@@ -94,4 +94,4 @@ if __name__ == '__main__':
         
     )
 
-    element_data_df.to_csv(OUTPUT_DIR / 'element_data_renamed.csv', index=False)
+    element_data_df.to_csv(OUTPUT_DIR / 'element_data.csv', index=False)

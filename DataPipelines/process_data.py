@@ -50,7 +50,7 @@ def calc_lattice_parameter(df: pd.DataFrame) -> pd.DataFrame:
 
         loc = target_ind + 1,
 
-        column = 'calculated_lattice_parameter',
+        column = 'lattice_parameter',
 
         value = (df['volume_cell'] / df['natoms'] * 8)**(1/3)
 
@@ -174,18 +174,18 @@ def compress_data(df: pd.DataFrame) -> pd.DataFrame:
     agg_dict = {
 
         'species': 'first',
-        'spinD_carbon': 'mean',
-        'spinD_metal': 'mean',
-        'Egap': 'mean',
-        'agl_thermal_expansion_300K': 'mean',
-        'agl_debye': 'mean',
-        'enthalpy_formation_atom': 'mean',
-        'calculated_lattice_parameter': 'mean',
-        'ael_bulk_modulus_vrh': 'mean',
-        'ael_poisson_ratio': 'mean',
-        'ael_shear_modulus_vrh': 'mean',
-        'ael_youngs_modulus_vrh': 'mean',
-        'agl_thermal_conductivity_300K': 'mean',
+        'spin_d_carbon': 'mean',
+        'spin_d_metal': 'mean',
+        'egap': 'mean',
+        'thermal_expansion': 'mean',
+        'debye_temperature': 'mean',
+        'formation_enthalpy': 'mean',
+        'lattice_parameter': 'mean',
+        'bulk_modulus': 'mean',
+        'poissons_ratio': 'mean',
+        'shear_modulus': 'mean',
+        'youngs_modulus': 'mean',
+        'thermal_conductivity': 'mean',
         'run_count': 'first',
 
     }
@@ -391,6 +391,39 @@ if __name__ == '__main__':
     aflow_data = insert_new_spin(aflow_data)
 
     icsd_data = insert_new_spin(icsd_data)
+
+    
+    ### Rename Columns ###
+
+    new_names = {
+
+        'spinD_carbon': 'spin_d_carbon',
+
+        'spinD_metal': 'spin_d_metal',
+
+        'Egap': 'egap',
+
+        'agl_thermal_expansion_300K': 'thermal_expansion',
+
+        'agl_debye': 'debye_temperature',
+
+        'enthalpy_formation_atom': 'formation_enthalpy',
+
+        'ael_bulk_modulus_vrh': 'bulk_modulus',
+
+        'ael_poisson_ratio': 'poissons_ratio',
+
+        'ael_shear_modulus_vrh': 'shear_modulus',
+
+        'ael_youngs_modulus_vrh': 'youngs_modulus',
+
+        'agl_thermal_conductivity_300K': 'thermal_conductivity'
+
+    }
+
+    aflow_data = aflow_data.rename(columns = new_names)
+
+    icsd_data = icsd_data.rename(columns = new_names)
 
     ### Save Pre-Compression Data ###
 

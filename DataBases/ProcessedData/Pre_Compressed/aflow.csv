@@ -1,4 +1,4 @@
-compound,auid,aurl,spacegroup_relax,Pearson_symbol_relax,species,spinD_carbon,spinD_metal,Egap,agl_thermal_expansion_300K,agl_debye,enthalpy_formation_atom,natoms,volume_cell,calculated_lattice_parameter,ael_bulk_modulus_vrh,ael_poisson_ratio,ael_shear_modulus_vrh,ael_youngs_modulus_vrh,agl_thermal_conductivity_300K
+compound,auid,aurl,spacegroup_relax,Pearson_symbol_relax,species,spin_d_carbon,spin_d_metal,egap,thermal_expansion,debye_temperature,formation_enthalpy,natoms,volume_cell,lattice_parameter,bulk_modulus,poissons_ratio,shear_modulus,youngs_modulus,thermal_conductivity
 Ag1C1,aflow:1f38ccafe2d28fa6,aflowlib.duke.edu:AFLOWDATA/LIB2_WEB/AgC/4,225,cF8,"['Ag', 'C']",0.0,0.0,,,,2.23388,2,25.4245,4.66771291734409,,,,,
 Ag1C1,aflow:251a1bdcc246b844,aflowlib.duke.edu:AFLOWDATA/LIB2_WEB/AgC/201,225,cF8,"['Ag', 'C']",0.0,0.0,,,,2.23382,2,25.4359,4.668410459427123,,,,,
 Ag1C1,aflow:2c84cd06c8faa827,aflowlib.duke.edu:AFLOWDATA/LIB2_WEB/AgC/720.BA,225,cF8,"['Ag', 'C']",0.0,0.0,,,,2.23382,2,25.4359,4.668410459427123,,,,,
